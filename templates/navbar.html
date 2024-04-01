@@ -24,7 +24,7 @@
           <li class="header__menuItem"><a >My Account</a></li>
           {% endif %} -->
 
-          <li class="header__menuItem"><a href="{% url 'chat' %}">Chat</a></li>
+          <li class="header__menuItem"><a href="{% url 'my-chats' %}">My Chats</a></li>
           <li class="header__menuItem"><a href="{% url 'my-account' %}">My Account</a></li>
     
           {% if request.user.is_authenticated %}

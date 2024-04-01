@@ -12,7 +12,11 @@ urlpatterns = [
     path('my-account/',views.my_account,name='my-account'),
     path('edit-account/',views.edit_account,name='edit-account'),
 
-    path('chat/', views.chat, name='chat'),
+    path('my_chats/', views.my_chats, name='my-chats'),
+    path('new_chat', views.new_chat, name='new-chat'),
+    # path('send_user_message', views.)
+
+    path('chat/<str:pk>/', views.chat, name='chat'),
 
 
     # path('inbox/',views.inbox,name='inbox'),

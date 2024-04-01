@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="projects">
+    <section class="hero-section text-center">
+        <div class="container container--narrow">
+            <div class="hero-section__box">
+                <h2><span>Your Chat History</span></h2>
+            </div>
+
+            <div class="hero-section__search">
+                <form id="search_form" class="form" action="" method="get">
+                    <a href="{% url 'new-chat' %}" class="btn btn--sub btn--lg">+ Start New Chat</a>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Search Result: DevList -->
+    <section class="projectsList">
+        <div class="container">
+            <div class="grid grid--three">
+
+    
+                {% for my_chat in my_chats %}
+                <div class="column">
+                    <div class="card project">
+                        <a href="{% url 'chat' my_chat.id %}" class="project">
+
+                            <div class="card__body">
+                                <h3 class="project__title">{{my_chat.chat_subject}}</h3>
+                                <!-- <p><a class="project__author" href=""></a></p> -->
+                                <!-- <p class="project--rating">
+                                    <span style="font-weight: bold;">20%</span> Postitive
+                                    Feedback
+                                </p> -->
+                                <div class="project__tags">
+
+                                    <span class="tag tag--pill tag--main">
+                                        <small>{{my_chat.updated_at}}</small>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

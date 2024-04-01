@@ -9,7 +9,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import custom_user_creation_form,edit_account_form
-from .models import Profile
+from .models import *
+import openai
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+openai.api_key = os.environ.get("OPENAI_KEY")
+fine_tuned_model_id = os.environ.get("fine_tuned_model")
 
 
 #     profiles,search_query=search_profile(request)
@@ -25,13 +34,84 @@ from .models import Profile
 #              }
 #     return render(request,'users/profiles.html',context)
 
+SYSTEM_PROMPT_FOR_PPD_AID = "You are an very kind hearted and friendly doctor or expert who deals with patients with PPD (Postpartum depression) named Chatner who just loves to aid people with PPD, clear their doubts regarding PPD, and you give them advice and things to follow to overcome and avoid PPD, and you should give mental support for PPD patients."
+
+
 def home(request):
     return render(request,'main.html')
 
+def generate_prompt(system_message, user_message):
+    prompt = []
+    prompt.append({"role": "system", "content": system_message})
+    prompt.append({"role": "user", "content": user_message})
+    return prompt
+
+def generate_prompt_for_chat_session_title(user_message):
+    prompt = []
+    prompt.append({"role": "system", "content": "you should act like an expert in drafting very short headings and it should be clear and short."})
+    user_content = f"Below is the message i am using to starting a convo with a chatbot, based on my below message generate a apt heading for that:\n {user_message}"
+    prompt.append({"role": "user", "content":user_content})
+    return prompt
+
 
 @login_required(login_url='login')
-def chat(request):
-    return render(request,'users/chat.html')
+def chat(request, pk):
+    chat_session = ChatSession.objects.get(id=pk)
+    if request.method=='POST':
+        message = request.POST['message']
+        user_chat_message = ChatMessage.objects.create(chat_session=chat_session, messager_type='user', message=message)
+        chat_session = ChatSession.objects.get(id=pk)
+        if len(chat_session.chat_messages.all())==1:
+            print("inside...")
+            #generate chat title
+            generate_heading_prompt = generate_prompt_for_chat_session_title(user_message=message)
+            heading_response = openai.ChatCompletion.create(
+                model=fine_tuned_model_id,
+                messages=generate_heading_prompt,
+                temperature=0,
+                max_tokens=800
+            )
+            heading = heading_response["choices"][0]["message"]["content"]
+            print('heading',heading)
+            chat_session.chat_subject = heading
+            chat_session.save()
+        
+        # openai code here
+        prompt = generate_prompt(system_message=SYSTEM_PROMPT_FOR_PPD_AID, user_message=message)
+        response = openai.ChatCompletion.create(
+            model=fine_tuned_model_id,
+            messages=prompt,
+            temperature=0,
+            max_tokens=800
+        )
+        bot_response_message = response["choices"][0]["message"]["content"]
+        bot_response_chat_message = ChatMessage.objects.create(chat_session=chat_session, messager_type='bot', message=bot_response_message )
+        
+    chat_messages = chat_session.chat_messages.all()
+    context={'chat_messages':chat_messages}
+    return render(request,'users/new_chat.html', context)
+
+@login_required(login_url='login')
+def my_chats(request):
+    my_chats = ChatSession.objects.filter(profile = request.user.profile)
+    context = {'my_chats':my_chats}
+    return render(request, 'users/my_chats.html', context)
+
+@login_required(login_url='login')
+def new_chat(request):
+    chat_sessions = ChatSession.objects.filter()
+    if not chat_sessions.exists():
+        chat_session = ChatSession.objects.create(profile = request.user.profile)
+    else:
+        last_session = chat_sessions.first()
+        if last_session.total_messages != 0:
+            chat_session = ChatSession.objects.create(profile = request.user.profile)
+        else:
+            chat_session = last_session
+            
+
+    return redirect('chat', pk=chat_session.id)
+
 
 
 def user_profile(request,pk):
