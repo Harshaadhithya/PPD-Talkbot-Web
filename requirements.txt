@@ -5,6 +5,7 @@ amqp==2.6.1
 anaconda-client==1.11.1
 anaconda-navigator==2.4.0
 anaconda-project @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_52iciqycjz/croots/recipe/anaconda-project_1660339902500/work
+annotated-types==0.6.0
 anyio @ file:///opt/concourse/worker/volumes/live/eb44598f-565b-45e7-4c50-c1ae70306e18/volume/anyio_1644481722202/work/dist
 appdirs==1.4.4
 applaunchservices @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_96v71vcny2/croots/recipe/applaunchservices_1661854626389/work
@@ -77,6 +78,7 @@ diff-match-patch @ file:///Users/ktietz/demo/mc3/conda-bld/diff-match-patch_1630
 dill @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_88dxe9g1aq/croot/dill_1667919544494/work
 distlib==0.3.7
 distributed @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ca26b14a-a121-44b5-82b0-dbb6ccf35309a1h39fbg/croots/recipe/distributed_1658520748547/work
+distro==1.9.0
 dj-static==0.0.6
 Django==3.2.15
 django-crispy-forms==1.14.0
@@ -104,10 +106,13 @@ glob2 @ file:///home/linux1/recipes/ci/glob2_1610991677669/work
 gmpy2 @ file:///opt/concourse/worker/volumes/live/22766409-e78a-4fb0-711e-bd031212d672/volume/gmpy2_1645455563619/work
 greenlet @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_dd2bsq3kkw/croot/greenlet_1670513229760/work
 gunicorn==20.0.4
+h11==0.14.0
 h5py @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_7fnj4n39p5/croots/recipe/h5py_1659091379933/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_59i6il2bqq/croot/holoviews_1676372884451/work
 html5lib==1.1
+httpcore==1.0.5
+httpx==0.27.0
 huggingface-hub @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1drvqttx4f/croot/huggingface_hub_1667490250276/work
 humanize==4.6.0
 hvplot @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_7e03pzpta7/croot/hvplot_1670508916157/work
@@ -192,7 +197,7 @@ numexpr @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ce
 numpy @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_8cgikbzvtd/croot/numpy_and_numpy_base_1672336184666/work
 numpydoc @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_adnyzxppoz/croot/numpydoc_1668085907252/work
 oauthlib==3.2.0
-openai==0.28.0
+openai==1.17.0
 openpyxl==3.0.10
 packaging @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_bet5qdixgt/croot/packaging_1671697440883/work
 pandas==1.5.3
@@ -234,6 +239,8 @@ pycosat @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_eb
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pyct @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_72mj2vy1q8/croot/pyct_1675441497227/work
 pycurl==7.45.1
+pydantic==2.6.4
+pydantic_core==2.16.3
 PyDispatcher==2.0.5
 pydocstyle @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_17qm6coxyl/croot/pydocstyle_1675221687004/work
 pyerfa @ file:///Users/builder/ci_310/pyerfa_1642535752787/work
@@ -244,10 +251,147 @@ PyJWT @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_eec4
 pylint @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b4nhjj9cv2/croot/pylint_1676919902809/work
 pylint-venv @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b7r_te6b8v/croot/pylint-venv_1673990131095/work
 pyls-spyder==0.4.0
-pyobjc-core @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_6cxketn_6t/croot/pyobjc-core_1678038360162/work
-pyobjc-framework-Cocoa @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_e0kw2fmem5/croot/pyobjc-framework-cocoa_1678108288001/work
-pyobjc-framework-CoreServices @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_66xmx_crni/croot/pyobjc-framework-coreservices_1678110076933/work
-pyobjc-framework-FSEvents @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_3c5ojsv0pb/croot/pyobjc-framework-fsevents_1678109237172/work
+pyobjc==10.2
+pyobjc-core==10.2
+pyobjc-framework-Accessibility==10.2
+pyobjc-framework-Accounts==10.2
+pyobjc-framework-AddressBook==10.2
+pyobjc-framework-AdServices==10.2
+pyobjc-framework-AdSupport==10.2
+pyobjc-framework-AppleScriptKit==10.2
+pyobjc-framework-AppleScriptObjC==10.2
+pyobjc-framework-ApplicationServices==10.2
+pyobjc-framework-AppTrackingTransparency==10.2
+pyobjc-framework-AudioVideoBridging==10.2
+pyobjc-framework-AuthenticationServices==10.2
+pyobjc-framework-AutomaticAssessmentConfiguration==10.2
+pyobjc-framework-Automator==10.2
+pyobjc-framework-AVFoundation==10.2
+pyobjc-framework-AVKit==10.2
+pyobjc-framework-BusinessChat==10.2
+pyobjc-framework-CalendarStore==10.2
+pyobjc-framework-CallKit==10.2
+pyobjc-framework-CFNetwork==10.2
+pyobjc-framework-ClassKit==10.2
+pyobjc-framework-CloudKit==10.2
+pyobjc-framework-Cocoa==10.2
+pyobjc-framework-Collaboration==10.2
+pyobjc-framework-ColorSync==10.2
+pyobjc-framework-Contacts==10.2
+pyobjc-framework-ContactsUI==10.2
+pyobjc-framework-CoreAudio==10.2
+pyobjc-framework-CoreAudioKit==10.2
+pyobjc-framework-CoreBluetooth==10.2
+pyobjc-framework-CoreData==10.2
+pyobjc-framework-CoreHaptics==10.2
+pyobjc-framework-CoreLocation==10.2
+pyobjc-framework-CoreMedia==10.2
+pyobjc-framework-CoreMediaIO==10.2
+pyobjc-framework-CoreMIDI==10.2
+pyobjc-framework-CoreML==10.2
+pyobjc-framework-CoreMotion==10.2
+pyobjc-framework-CoreServices==10.2
+pyobjc-framework-CoreSpotlight==10.2
+pyobjc-framework-CoreText==10.2
+pyobjc-framework-CoreWLAN==10.2
+pyobjc-framework-CryptoTokenKit==10.2
+pyobjc-framework-DataDetection==10.2
+pyobjc-framework-DeviceCheck==10.2
+pyobjc-framework-DictionaryServices==10.2
+pyobjc-framework-DiscRecording==10.2
+pyobjc-framework-DiscRecordingUI==10.2
+pyobjc-framework-DiskArbitration==10.2
+pyobjc-framework-DVDPlayback==10.2
+pyobjc-framework-EventKit==10.2
+pyobjc-framework-ExceptionHandling==10.2
+pyobjc-framework-ExecutionPolicy==10.2
+pyobjc-framework-ExternalAccessory==10.2
+pyobjc-framework-FileProvider==10.2
+pyobjc-framework-FileProviderUI==10.2
+pyobjc-framework-FinderSync==10.2
+pyobjc-framework-FSEvents==10.2
+pyobjc-framework-GameCenter==10.2
+pyobjc-framework-GameController==10.2
+pyobjc-framework-GameKit==10.2
+pyobjc-framework-GameplayKit==10.2
+pyobjc-framework-ImageCaptureCore==10.2
+pyobjc-framework-InputMethodKit==10.2
+pyobjc-framework-InstallerPlugins==10.2
+pyobjc-framework-InstantMessage==10.2
+pyobjc-framework-Intents==10.2
+pyobjc-framework-IntentsUI==10.2
+pyobjc-framework-IOBluetooth==10.2
+pyobjc-framework-IOBluetoothUI==10.2
+pyobjc-framework-IOSurface==10.2
+pyobjc-framework-iTunesLibrary==10.2
+pyobjc-framework-KernelManagement==10.2
+pyobjc-framework-LatentSemanticMapping==10.2
+pyobjc-framework-LaunchServices==10.2
+pyobjc-framework-libdispatch==10.2
+pyobjc-framework-libxpc==10.2
+pyobjc-framework-LinkPresentation==10.2
+pyobjc-framework-LocalAuthentication==10.2
+pyobjc-framework-LocalAuthenticationEmbeddedUI==10.2
+pyobjc-framework-MailKit==10.2
+pyobjc-framework-MapKit==10.2
+pyobjc-framework-MediaAccessibility==10.2
+pyobjc-framework-MediaLibrary==10.2
+pyobjc-framework-MediaPlayer==10.2
+pyobjc-framework-MediaToolbox==10.2
+pyobjc-framework-Metal==10.2
+pyobjc-framework-MetalKit==10.2
+pyobjc-framework-MetalPerformanceShaders==10.2
+pyobjc-framework-MetalPerformanceShadersGraph==10.2
+pyobjc-framework-MetricKit==10.2
+pyobjc-framework-MLCompute==10.2
+pyobjc-framework-ModelIO==10.2
+pyobjc-framework-MultipeerConnectivity==10.2
+pyobjc-framework-NaturalLanguage==10.2
+pyobjc-framework-NetFS==10.2
+pyobjc-framework-Network==10.2
+pyobjc-framework-NetworkExtension==10.2
+pyobjc-framework-NotificationCenter==10.2
+pyobjc-framework-OpenDirectory==10.2
+pyobjc-framework-OSAKit==10.2
+pyobjc-framework-OSLog==10.2
+pyobjc-framework-PassKit==10.2
+pyobjc-framework-PencilKit==10.2
+pyobjc-framework-PHASE==10.2
+pyobjc-framework-Photos==10.2
+pyobjc-framework-PhotosUI==10.2
+pyobjc-framework-PreferencePanes==10.2
+pyobjc-framework-PushKit==10.2
+pyobjc-framework-Quartz==10.2
+pyobjc-framework-QuickLookThumbnailing==10.2
+pyobjc-framework-ReplayKit==10.2
+pyobjc-framework-SafariServices==10.2
+pyobjc-framework-SceneKit==10.2
+pyobjc-framework-ScreenCaptureKit==10.2
+pyobjc-framework-ScreenSaver==10.2
+pyobjc-framework-ScreenTime==10.2
+pyobjc-framework-ScriptingBridge==10.2
+pyobjc-framework-SearchKit==10.2
+pyobjc-framework-Security==10.2
+pyobjc-framework-SecurityFoundation==10.2
+pyobjc-framework-SecurityInterface==10.2
+pyobjc-framework-ServiceManagement==10.2
+pyobjc-framework-ShazamKit==10.2
+pyobjc-framework-Social==10.2
+pyobjc-framework-SoundAnalysis==10.2
+pyobjc-framework-Speech==10.2
+pyobjc-framework-SpriteKit==10.2
+pyobjc-framework-StoreKit==10.2
+pyobjc-framework-SyncServices==10.2
+pyobjc-framework-SystemConfiguration==10.2
+pyobjc-framework-SystemExtensions==10.2
+pyobjc-framework-UniformTypeIdentifiers==10.2
+pyobjc-framework-UserNotifications==10.2
+pyobjc-framework-UserNotificationsUI==10.2
+pyobjc-framework-VideoSubscriberAccount==10.2
+pyobjc-framework-VideoToolbox==10.2
+pyobjc-framework-Virtualization==10.2
+pyobjc-framework-Vision==10.2
+pyobjc-framework-WebKit==10.2
 pyodbc @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_18mhb222la/croots/recipe/pyodbc_1659513803477/work
 pyOpenSSL @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_6dweji2whw/croot/pyopenssl_1677607689781/work
 pyparsing @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_3a17y2delq/croots/recipe/pyparsing_1661452538853/work
@@ -266,6 +410,7 @@ python-snappy @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/
 python3-openid==3.2.0
 pytimeparse==1.1.8
 pytoolconfig @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_74xa7iol6y/croot/pytoolconfig_1676315055960/work
+pyttsx3==2.90
 pytz==2023.3.post1
 pyviz-comms @ file:///tmp/build/80754af9/pyviz_comms_1623747165329/work
 PyWavelets @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4d73vf63_v/croot/pywavelets_1670425181052/work
@@ -349,7 +494,7 @@ trove-classifiers==2023.11.29
 tvdatafeed @ git+https://github.com/rongardF/tvdatafeed.git@e6f6aaa7de439ac6e454d9b26d2760ded8dc4923
 twelvedata==1.2.12
 Twisted @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_daykstm3mh/croots/recipe/twisted_1659592770155/work
-typing_extensions @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4b7xacf029/croot/typing_extensions_1669923792404/work
+typing_extensions==4.11.0
 tzdata==2022.2
 ujson @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_cf44fbd5-5db0-48cf-86c4-c8d4e74d1cbbwhgckc99/croots/recipe/ujson_1657544919410/work
 Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work

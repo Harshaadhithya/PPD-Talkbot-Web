@@ -16,5 +16,8 @@ urlpatterns = [
     path('new_chat', views.new_chat, name='new-chat'),
 
     path('chat/<str:pk>/', views.chat, name='chat'),
+    path('record-feedback-up/<str:pk>/', views.record_feedback_up, name='record-feedback-up'),
+    path('record-feedback-down/<str:pk>/', views.record_feedback_down, name='record-feedback-down'),
 
+    # path('process_audio/<str:pk>/', views.process_audio, name='process-audio')
 ]

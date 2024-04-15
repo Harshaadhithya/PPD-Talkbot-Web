@@ -46,14 +46,23 @@ class ChatMessage(models.Model):
         ('bot', 'bot'),
         ('user', 'user')
     )
+    feedback_choices = (
+        ('helpful', 'helpful'),
+        ('not_helpful', 'not_helpful')
+    )
     chat_session = models.ForeignKey(ChatSession, on_delete=models.CASCADE, related_name='chat_messages')
     messager_type = models.CharField(max_length=50, choices=messager_type_choices)
+    feedback = models.CharField(max_length=50, choices = feedback_choices, null=True, blank=True)
+    response_to = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='responses')
     message = models.TextField()
+    audio = models.FileField(upload_to='audio/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     id=models.UUIDField(default=uuid.uuid4,unique=True,primary_key=True,editable=False)
 
+    class Meta:
+        ordering=['created_at']
+
     def save(self, *args, **kwargs):
-        # Update the updated_at field of the associated ChatSession
         self.chat_session.updated_at = timezone.now()
         self.chat_session.save()
         super().save(*args, **kwargs)

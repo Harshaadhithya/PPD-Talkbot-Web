@@ -332,7 +332,7 @@
         <i class="fas fa-microphone"></i>
     </div> -->
 
-    <div class="chat-box" style="background-color: #2d2d39;">
+    <div class="chat-box" style="background-color: #2d2d39;" id="chat-box">
         <div class="chat-box-header">
             <!-- <h3>Message Us</h3> -->
             <p>
@@ -355,8 +355,37 @@
                             <p>{{chat_message.message}}</p>
                             <span>{{chat_message.created_at}}</span>
                         </div>
-                        <i class="fas fa-volume-up"></i>
                     </div>
+                    {% if chat_message.audio %}
+                        <audio id="bot-audio-{{ chat_message.id }}" controls>
+                            <source src="{{ chat_message.audio.url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    {% endif %}
+                    {% if chat_message.feedback %}
+                        <div>
+                            <p>Your Feedback: </p>
+                            {% if chat_message.feedback == 'helpful' %}
+                                <img src="{% static 'images/up.png' %}" style="width: 16px; height: 16px; object-fit: contain;" alt="">
+                            {% else %}
+                                <img src="{% static 'images/down.png' %}" style="width: 16px; height: 16px; object-fit: contain;" alt="">
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        {% if last_message_id == chat_message.id and chat_message.messager_type == 'bot' %}
+                        <div>
+                            <div style="display: flex; gap: 4px;">
+                                <p>Was this useful?</p>
+                                <a href="{% url 'record-feedback-up' chat_message.id %}" style="width: 16px; height: 16px;">
+                                    <img src="{% static 'images/up.png' %}" style="width: 100%; height: auto; object-fit: contain;" alt="">
+                                </a>
+                                <a href="{% url 'record-feedback-down' chat_message.id %}" style="width: 16px; height: 16px;">
+                                    <img src="{% static 'images/down.png' %}" style="width: 100%; height: auto; object-fit: contain;" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
             <!-- <div class="con" style="display: flex; width: 100%; justify-content: flex-end;">
@@ -465,6 +494,57 @@
         </div>
     </div>
 
+    <script>
+    
+//         let mediaRecorder;
+        
+
+//         var recordedChunks = []; // Assuming you're recording audio using MediaRecorder
+
+// function startRecording() {
+//     navigator.mediaDevices.getUserMedia({ audio: true })
+//         .then(function(stream) {
+//             mediaRecorder = new MediaRecorder(stream);
+//             mediaRecorder.ondataavailable = function(event) {
+//                 recordedChunks.push(event.data);
+//             };
+//             mediaRecorder.start();
+//             document.getElementById("recordButton").disabled = true;
+//             document.getElementById("stopButton").disabled = false;
+//             document.getElementById("recordingStatus").innerText = "Recording...";
+//         })
+//         .catch(function(err) {
+//             console.error("Error accessing microphone:", err);
+//         });
+// }
+
+// function stopRecording() {
+//     mediaRecorder.stop();
+//     document.getElementById("recordButton").disabled = false;
+//     document.getElementById("stopButton").disabled = true;
+//     document.getElementById("recordingStatus").innerText = "Recording stopped";
+
+//     mediaRecorder.onstop = function() {
+//         var audioBlob = new Blob(recordedChunks, { type: 'audio/webm' });
+//         var reader = new FileReader();
+//         reader.onloadend = function() {
+//             document.getElementById("audioData").value = reader.result; // Set the audio data to the hidden input field
+//             document.getElementById("submitAudioButton").disabled = false; // Enable the submit button
+//         };
+//         reader.readAsDataURL(audioBlob);
+//     };
+// }
+
+        var latestBotResponseId = "{{ newly_created_id }}";
+        console.log(latestBotResponseId)
+    
+        var latestBotAudio = document.getElementById("bot-audio-" + latestBotResponseId);
+        console.log(latestBotAudio)
+        if (latestBotAudio) {
+            latestBotAudio.play();
+        }
+    </script>
+      
 
     {% endblock %}
 </body>
